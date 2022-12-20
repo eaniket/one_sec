@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* :root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #383838;
+
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+html{
+    /* background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%); */
+    background: linear-gradient(112.1deg, rgba(12,24,42,255) 11.4%, rgba(25,16,28,255) 70.2%);
+}
+
+body{
+    max-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.header-tile{
+    padding: 3rem 3rem;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.title-tile{
+    color: white;
+    margin: 0;
+}
+
+.content-tile {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  margin-top: 150px;
+}
+
+.container {
+  text-align: center;
+}
+
+.block-container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 500px;
+}
+
+.square{
+    height: 150px;
+    width: 150px;
+    background-color: #202835;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 64px;
+}
+
+.progress-tile{
+    padding: 0 2rem;
+}
+
+.progress-bar-fill {
+    width: 100%;
+    display: block;
+    height: 12px;
+    background: #659cef;
+    border-radius: 3px;
+    /*transition: width 250ms ease-in-out;*/
+    transition: width 2s ease-in-out;
+}
+
+@keyframes fill {
+    0%   {width: 0%;}
+    100% {width: 100%;}
+}
+
+.progress {
+  width: 100%;
+  height: 12px;
+  padding: 0 8px;
+  border-radius: 4px;
+  /* background-color: black; */
+}
+
+.fill {
+  height: 100%;
+  width: auto;
+  animation: fill 1s;
+  animation-timing-function: ease-out;
+  background-color: #659cef;
+  border-radius: 4px;
+}
+
+.score{
+  margin-top: 48px;
+  color: white;
+  font-size: 32px;
+}
+
+/* End Game CSS */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 150px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #202835;
+  margin: auto;
+  padding: 24px;
+  border: 1px solid #202835;
+  width: 500px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  color: white;
+  border-radius: 12px;
+  height: 550px;
+}
+
+/* The Close Button
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+} */
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.end-game-text{
+  display: flex;
+  justify-content: center;
+}
+
+.your-score-text{
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  font-size: 24px;
+}
+
+.your-score-val{
+  display: flex;
+  justify-content: center;
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.highest-score{
+  text-align: center;
+  margin-top: 64px;
+  font-size: 24px;
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 150px;
+}
+
+.button{
+  height: 48px;
+  width: 150px;
+  padding: 8px;
+  background-color: #2f8af5;
+  border: 1px solid #2f8af5;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-family: 'Roboto';
+}
+
+.button-share{
+  background: linear-gradient(112.1deg, rgba(212,33,252,255) 11.4%, rgba(73,162,246,255) 70.2%);
+  color: white;
+  border: 1px solid #182a44;
+}

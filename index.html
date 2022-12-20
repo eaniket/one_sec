@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style/index.css" />
+		<title>1sec</title>
+	</head>
+	<body>
+		<div class="main">
+			<div class="header-tile">
+				<h1 class="title-tile">1Sec</h1>
+			</div>
+			<div class="content-tile">
+				<div class="container">
+					<div class="block-container">
+						<div class="square" id="box-1" onclick="check(1)"></div>
+						<div class="square" id="box-2" onclick="check(2)"></div>
+					</div>
+
+					<div class="progress-tile">
+						<div class="progress">
+							<div class="fill"></div>
+						</div>
+					</div>
+
+					<div class="score-tile">
+						<div class="score">
+							Score: <span id="score-val">0</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="end-game-text">
+					<div style="font-size: 48px; font-weight: bold">
+						GAME OVER!
+					</div>
+				</div>
+				<div class="your-score-text">Your Score:</div>
+				<div class="your-score-val">72</div>
+				<div class="highest-score">
+					HIGHEST SCORE:
+					<span id="highest-score-val">128</span>
+				</div>
+
+				<div class="button-container">
+					<button class="button" id="restart">Restart</button>
+					<button class="button button-share" id="share">
+						Share
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="./scripts/scripts.js"></script>
+	</body>
+</html>
