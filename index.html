@@ -33,8 +33,8 @@
 			</div>
 		</div>
 
-		<!-- The Modal -->
-		<div id="myModal" class="modal">
+		<!-- The Modals -->
+		<div id="end-game-modal" class="modal">
 			<!-- Modal content -->
 			<div class="modal-content">
 				<div class="end-game-text">
@@ -43,16 +43,62 @@
 					</div>
 				</div>
 				<div class="your-score-text">Your Score:</div>
-				<div class="your-score-val">72</div>
+				<div class="your-score-val" id="your-score-val"></div>
 				<div class="highest-score">
 					HIGHEST SCORE:
 					<span id="highest-score-val">128</span>
 				</div>
 
 				<div class="button-container">
-					<button class="button" id="restart">Restart</button>
+					<button
+						class="button"
+						id="restart"
+						onclick="startGame(document.getElementById('end-game-modal'))"
+					>
+						Restart
+					</button>
 					<button class="button button-share" id="share">
 						Share
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="instruction-modal" class="modal instruction-modal">
+			<!-- Modal content -->
+			<div class="modal-content instruction-modal-content">
+				<div class="instruction-text">
+					<div style="font-size: 36px; font-weight: bold">
+						Instruction
+					</div>
+				</div>
+				<div class="instructions">
+					<ul class="instructions-list">
+						<li class="instruction-item">
+							Warm up, and embrance yourself to be lighting fast.
+							&#9889;
+						</li>
+						<li class="instruction-item">
+							Select the highest number to start the game.
+							&#127937;
+						</li>
+						<li class="instruction-item">
+							Keep selecting highest number, before time gets
+							over. &#8987;
+						</li>
+						<li class="instruction-item">
+							Score highest, and share it. &#128238;
+						</li>
+					</ul>
+				</div>
+
+				<div class="button-container instruction-button-container">
+					<button
+						class="button instruction-button"
+						id="gotit"
+						onclick="startGame(document.getElementById('instruction-modal'))"
+					>
+						Got it!
 					</button>
 				</div>
 			</div>

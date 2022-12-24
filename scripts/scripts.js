@@ -4,6 +4,12 @@ const score_val = document.getElementById('score-val');
 const progress = document.getElementsByClassName('progress')[0];
 const display = document.getElementsByClassName('display')[0];
 const fill = document.getElementsByClassName('fill')[0];
+const yourScore = document.getElementById('your-score-val');
+const highestScoreVal = document.getElementById('highest-score-val');
+
+const endGameModal = document.getElementById('end-game-modal');
+const instructionModal = document.getElementById('instruction-modal');
+
 let done = false;
 let score = 0;
 
@@ -34,8 +40,15 @@ const newGame = () => {
 };
 
 const endGame = () => {
-	// window.location.href = 'end.html';
-	modal.style.display = 'block';
+	let highScore = localStorage.getItem('highScore');
+	if (highScore == null || (highScore != null && score > highScore))
+		localStorage.setItem('highScore', score);
+
+	highScore = localStorage.getItem('highScore');
+
+	yourScore.innerHTML = score;
+	highestScoreVal.innerHTML = highScore;
+	showModal(endGameModal);
 };
 
 const check = (click_box) => {
@@ -52,33 +65,54 @@ const check = (click_box) => {
 	}
 };
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+	if (event.target == instructionModal) {
+		event.target.style.display = 'none';
+	}
+};
+
+const showModal = (modal) => {
+	modal.style.display = 'block';
+};
+
+const hideModal = (modal) => {
+	modal.style.display = 'none';
+};
+
+showModal(instructionModal);
 newGame();
 
 progress.onclick = updateDisplay;
 fill.addEventListener('animationend', markDone);
 
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-// var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName('close')[0];
-
-// When the user clicks on the button, open the modal
-// btn.onclick = function() {
-//   modal.style.display = "block";
-// }
-
-// When the user clicks on <span> (x), close the modal
-// span.onclick = function () {
-// 	modal.style.display = 'none';
-// };
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-	if (event.target == modal) {
-		modal.style.display = 'none';
-	}
+const startGame = (modal) => {
+	hideModal(modal);
+	score = 0;
+	timerFunction();
+	newGame();
 };
+
+// const timerFunction = () => {
+// 	var counter = 3;
+
+// 	var timer = setInterval(function () {
+// 		// $('#countdown').remove();
+
+// 		var countdown = $(
+// 			'<span id="countdown">' +
+// 				(counter == 0 ? 'SMILE!!' : counter) +
+// 				'</span>'
+// 		);
+// 		countdown.appendTo($('.container'));
+// 		setTimeout(() => {
+// 			if (counter > -1) {
+// 				$('#countdown').css({ 'font-size': '40vw', opacity: 0 });
+// 			} else {
+// 				$('#countdown').css({ 'font-size': '10vw', opacity: 50 });
+// 			}
+// 		}, 20);
+// 		counter--;
+// 		if (counter == -1) clearInterval(timer);
+// 	}, 1000);
+// };

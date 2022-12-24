@@ -148,13 +148,6 @@ body{
   font-weight: bold;
 } */
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 /* Add Animation */
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
@@ -208,4 +201,39 @@ body{
   background: linear-gradient(112.1deg, rgba(212,33,252,255) 11.4%, rgba(73,162,246,255) 70.2%);
   color: white;
   border: 1px solid #182a44;
+}
+
+.instruction-modal{
+  padding-top: 250px;
+}
+.instructions-list{
+  padding: 16px;
+}
+
+.instruction-item{
+  padding: 4px 0;
+}
+
+.instruction-modal-content{
+  height: auto;
+}
+
+.instruction-button-container{
+  margin-top: 16px;
+}
+
+.instruction-button{
+  width: 100%;
+}
+
+#countdown {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-block;
+  transform: translate(-50%, -50%);
+  transition: 1s;
+  font-size: 0vw;
+  opacity: 50%;
+  color: #040; 
 }
