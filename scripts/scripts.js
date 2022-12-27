@@ -51,6 +51,9 @@ const randomNumberGenarator = () => {
 };
 
 const newGame = () => {
+	hamburger.classList.remove('active');
+	menuOptions.classList.remove('active');
+
 	box_1.innerText = randomNumberGenarator();
 	box_2.innerText = randomNumberGenarator();
 	score_val.innerHTML = score;

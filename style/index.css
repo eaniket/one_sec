@@ -16,6 +16,7 @@ html{
 }
 
 body{
+    cursor: pointer;
     max-height: 100vh;
     overflow: hidden;
     margin: 0;
@@ -370,6 +371,12 @@ a{
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .modal{
+    padding-top: 15%;
+  }
 }
 
 /* Mobile view CSS */
