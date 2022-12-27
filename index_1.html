@@ -4,12 +4,42 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./style/style_1.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
 		<title>1sec</title>
 	</head>
 	<body>
 		<div class="main">
 			<div class="header-tile">
-				<h1 class="title-tile">1Sec</h1>
+				<!-- <h1 class="title-tile">1Sec</h1> -->
+				<img src="./resources/1secLogo.png" />
+				<ul class="menu-options" id="menu-options">
+					<li
+						class="menu-options-items"
+						onclick="showModal(document.getElementById('instruction-modal'))"
+					>
+						Instructions
+					</li>
+					<li
+						class="menu-options-items"
+						onclick="feedbackRedirection()"
+					>
+						Feedback
+					</li>
+					<li
+						class="menu-options-items"
+						onclick="showModal(document.getElementById('share-modal'))"
+					>
+						Share
+					</li>
+				</ul>
+				<div class="hamburger" id="hamburger">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</div>
 			</div>
 			<div class="content-tile">
 				<div class="container">
@@ -19,19 +49,188 @@
 					</div>
 
 					<div class="progress-tile">
-						<span
-							class="progress-bar-fill"
-							style="width: 30%"
-						></span>
+						<div class="progress">
+							<div class="fill"></div>
+						</div>
 					</div>
-					<!-- <progress id="file" value="32" max="100">32%</progress> -->
+
 					<div class="score-tile">
-						<h1>Score: 0</h1>
+						<div class="score">
+							Score: <span id="score-val">0</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-tile">
+				<hr class="hr-style" />
+				<div class="footer-content">
+					<div>&#169;2022 1sec</div>
+					<div class="contacts">
+						<div>
+							<a href="mailto:enigmamail37@gmail.com"
+								><i
+									class="fa fa-envelope"
+									aria-hidden="true"
+								></i
+							></a>
+						</div>
+						<div>
+							<a
+								href="https://www.linkedin.com/in/aniket-singh-256b9b147/"
+								target="_blank"
+							>
+								<i
+									class="fa fa-linkedin-square"
+									aria-hidden="true"
+								></i>
+							</a>
+						</div>
+						<div>
+							<a
+								href="https://twitter.com/Enigma__37"
+								target="_blank"
+							>
+								<i
+									class="fa fa-twitter-square"
+									aria-hidden="true"
+								></i>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- <script src="script.js"></script> -->
+		<!-- The Modals -->
+		<div id="end-game-modal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="end-game-text">
+					<div style="font-size: 48px; font-weight: bold">
+						GAME OVER!
+					</div>
+				</div>
+				<div class="your-score-text">Your Score:</div>
+				<div class="your-score-val" id="your-score-val"></div>
+				<div class="highest-score">
+					HIGHEST SCORE:
+					<span id="highest-score-val">128</span>
+				</div>
+				<div class="gif-tile">
+					<img
+						id="gif"
+						src="./resources/catshake.gif"
+						alt="meow_party"
+					/>
+				</div>
+				<div class="button-container">
+					<button
+						class="button"
+						id="restart"
+						onclick="startGame(document.getElementById('end-game-modal'))"
+					>
+						Restart
+					</button>
+					<button
+						class="button button-share"
+						id="share"
+						onclick="showModal(document.getElementById('share-modal'))"
+					>
+						Share
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="instruction-modal" class="modal instruction-modal">
+			<!-- Modal content -->
+			<div class="modal-content instruction-modal-content">
+				<div class="instruction-text">
+					<div style="font-size: 36px; font-weight: bold">
+						Instruction
+					</div>
+				</div>
+				<div class="instructions">
+					<ul class="instructions-list">
+						<li class="instruction-item">
+							Warm up, and embrace yourself to be lighting fast.
+							<span style="font-size: 20px">&#9889;</span>
+						</li>
+						<li class="instruction-item">
+							Select the highest number to start the game.
+							<span style="font-size: 20px">&#127937;</span>
+						</li>
+						<li class="instruction-item">
+							Keep selecting highest number, before time gets
+							over.
+							<span style="font-size: 20px">&#8987;</span>
+						</li>
+						<li class="instruction-item">
+							Score highest, and share it.
+							<span style="font-size: 20px">&#128238;</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="button-container instruction-button-container">
+					<button
+						class="button instruction-button"
+						id="gotit"
+						onclick="startGame(document.getElementById('instruction-modal'))"
+					>
+						Got it!
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="share-modal" class="modal share-modal">
+			<!-- Modal content -->
+			<div class="modal-content instruction-modal-content">
+				<div class="instruction-text">
+					<div style="font-size: 36px; font-weight: bold">Share</div>
+				</div>
+				<div class="instructions">
+					<textarea
+						id="share-modal-text"
+						class="share-modal-text"
+					></textarea>
+				</div>
+
+				<div class="share-button-container">
+					<button
+						class="share-button-item"
+						onclick="share('facebook')"
+					>
+						<i class="fa fa-facebook fa-2x"></i>
+					</button>
+					<button
+						class="share-button-item"
+						onclick="share('twitter')"
+					>
+						<i class="fa fa-twitter fa-2x"></i>
+					</button>
+					<button
+						class="share-button-item"
+						onclick="share('whatsapp')"
+					>
+						<i class="fa fa-whatsapp fa-2x"></i>
+					</button>
+					<button
+						class="share-button-item tooltip"
+						onclick="share('clipboard')"
+						onmouseout="outFunc()"
+					>
+						<span class="tooltiptext" id="myTooltip"
+							>Copy to clipboard</span
+						>
+						<i class="fa fa-clipboard fa-2x"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="./scripts/scripts.js"></script>
 	</body>
 </html>

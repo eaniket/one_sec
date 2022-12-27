@@ -12,12 +12,26 @@ const endGameModal = document.getElementById('end-game-modal');
 const instructionModal = document.getElementById('instruction-modal');
 const shareModal = document.getElementById('share-modal');
 
+const hamburger = document.getElementById('hamburger');
+const menuOptions = document.getElementById('menu-options');
 let done = false;
 let score = 0;
 let firstMove = true;
 
 const hostedUrl = 'https://www.google.com';
 let sharedText;
+
+hamburger.addEventListener('click', () => {
+	hamburger.classList.toggle('active');
+	menuOptions.classList.toggle('active');
+});
+
+document.querySelectorAll('.menu-options-items').forEach((n) =>
+	n.addEventListener('click', () => {
+		hamburger.classList.remove('active');
+		menuOptions.classList.remove('active');
+	})
+);
 
 function updateDisplay() {
 	if (done && !firstMove) {

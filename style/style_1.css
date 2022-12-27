@@ -26,6 +26,28 @@ body{
     height: 100px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.menu-options{
+  display: flex;
+  width: 40%;
+  color: white;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+
+.menu-options-items{
+  padding: 8px 10px;
+  font-size: 20px;
+  color: #6b85ac;
+}
+
+.menu-options-items:hover{
+  background-color: #182a44;
+  border-radius: 6px;
+  color: white;
 }
 
 .title-tile{
@@ -50,62 +72,393 @@ body{
   position: relative;
   margin-bottom: 30px;
   max-width: 100%;
-  width: 500px;
+  width: 450px;
 }
 
 .square{
-    height: 175px;
-    width: 175px;
+    height: 150px;
+    width: 150px;
     background-color: #202835;
     padding: 2rem;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 64px;
 }
 
 .progress-tile{
-    height: 50px;
-    background-color: red;
+    padding: 0 2rem;
+}
+
+.progress-bar-fill {
     width: 100%;
-    padding: 8ox;
+    display: block;
+    height: 12px;
+    background: #659cef;
+    border-radius: 3px;
+    /*transition: width 250ms ease-in-out;*/
+    transition: width 2s ease-in-out;
 }
 
-/* .circle.active {
-  border-color: var(--line-border-fill);
-} 
+@keyframes fill {
+    0%   {width: 100%;}
+    100% {width: 0%;}
+}
 
-.circle {
-  background-color: #1f1f1f;
-  color:#e2e2e2;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
+.progress {
+  width: 100%;
+  height: 12px;
+  padding: 0 8px;
+  border-radius: 4px;
+  /* background-color: black; */
+}
+
+.fill {
+  height: 100%;
+  width: auto;
+  animation: fill 1.5s;
+  animation-timing-function: ease-out;
+  background-color: #659cef;
+  border-radius: 4px;
+}
+
+.score{
+  margin-top: 48px;
+  color: white;
+  font-size: 32px;
+}
+
+/* End Game CSS */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 150px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #202835;
+  margin: auto;
+  padding: 24px;
+  border: 1px solid #202835;
+  width: 500px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  color: white;
+  border-radius: 12px;
+  height: 550px;
+}
+
+/* The Close Button
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+} */
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.end-game-text{
   display: flex;
-  align-items: center;
   justify-content: center;
-  border: 3px solid var(--line-border-empty);
-  transition: 0.4s ease;
 }
 
-.btn {
-  background-color: var(--line-border-fill);
+.your-score-text{
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  font-size: 24px;
+}
+
+.your-score-val{
+  display: flex;
+  justify-content: center;
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.highest-score{
+  text-align: center;
+  margin-top: 64px;
+  font-size: 24px;
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-around;
+  /* margin-top: 150px; */
+}
+
+.button{
+  height: 48px;
+  width: 150px;
+  padding: 8px;
+  background-color: #2f8af5;
+  border: 1px solid #2f8af5;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-family: 'Roboto';
+}
+
+.button-share{
+  background: linear-gradient(112.1deg, rgba(212,33,252,255) 11.4%, rgba(73,162,246,255) 70.2%);
+  color: white;
+  border: 1px solid #182a44;
+}
+
+.instruction-modal{
+  padding-top: 250px;
+}
+.instructions-list{
+  padding: 16px;
+}
+
+.instruction-item{
+  padding: 4px 0;
+}
+
+.instruction-modal-content{
+  height: auto;
+}
+
+.instruction-button-container{
+  margin-top: 16px;
+}
+
+.instruction-button{
+  width: 100%;
+}
+
+.share-modal-text{
+  background-color: #131823;
+  border-radius: 12px;
+  width: 100%;
+  height: 200px;
+  margin: 24px 0;
+  border: 1px solid #131823;
+  color: white;
+  font-size: 16px;
+  padding: 16px;
+}
+
+.share-button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.share-button-item{
+  height: 72px;
+  width: 72px;
+  border-radius: 16px;
+  border: 1px solid #202835;
+  padding: 4px;
+}
+
+.icon-style{
+  font-size: 32px;
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
   color: #fff;
-  border: 0;
+  text-align: center;
   border-radius: 6px;
-  cursor: pointer;
-  font-family: inherit;
-  padding: 8px 30px;
-  margin: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.footer-tile{
+  position: absolute;
+  bottom: 32px;
+  width: 100%;
+  padding: 0 48px;
+}
+
+.hr-style{
+  border: 1px solid #4e6180;
+  opacity: 0.5;
+}
+
+.footer-content{
+  display: flex;
+  justify-content: space-between;
+  color: #576c8e;
   font-size: 14px;
 }
 
-.btn:active {
-  transform: scale(0.98);
+.footer-content .contacts{
+  display: flex;
+  width: 72px;
+  justify-content: space-between;
+  font-size: 16px;
 }
 
-.btn:focus {
-  outline: 0;
+a{
+  text-decoration: none;
+  color: #576c8e !important
 }
 
-.btn:disabled {
-  background-color: var(--line-border-empty);
-  cursor: not-allowed;
-} */
+.gif-tile{
+  height: 96px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  margin: 16px 0px 48px;
+}
+
+.hamburger{
+  display: none;
+  cursor: pointer;
+}
+
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+
+/* Mobile view CSS */
+@media screen and (max-width: 512px) {
+  .modal{
+    padding-top: 8%;
+  }
+
+  .modal .instruction-modal{
+    padding-top: 30% !important;
+  }
+
+  .instruction-modal-content{
+    width: auto;
+    margin: 0 16px;
+  }
+
+  .header-tile{
+    padding: 3rem 24px;
+  }
+  .block-container{
+    width: 100%;
+    column-gap: 16px;
+  }
+
+  .square{
+    width: 100px;
+    height: 100px;
+    font-size: 48px;
+  }
+
+  .progress-tile{
+    padding: 0;
+  }
+
+  .footer-tile{
+    padding: 0 24px;
+  }
+
+  .score{
+    font-size: 24px;
+  }
+
+
+  .modal-content{
+    width: auto;
+    margin: 0 16px;
+  }
+
+  .button-container{
+    column-gap: 8px;
+  }
+
+
+
+/* todo nav to hamburger menu */
+  .hamburger{
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2){
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .menu-options{
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    width: 100%;
+    text-align: end;
+    align-items: flex-end;
+    transition: 0.3s;
+  }
+
+  .menu-options-items{
+    margin: 8px 0;
+  }
+
+  .menu-options.active{
+    left: 0;
+  }
+}
