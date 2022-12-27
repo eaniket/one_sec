@@ -18,7 +18,7 @@ let done = false;
 let score = 0;
 let firstMove = true;
 
-const hostedUrl = 'https://www.google.com';
+const hostedUrl = 'https://one-sec.netlify.app';
 let sharedText;
 
 hamburger.addEventListener('click', () => {
