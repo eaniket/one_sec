@@ -26,6 +26,28 @@ body{
     height: 100px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.menu-options{
+  display: flex;
+  width: 40%;
+  color: white;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+
+.menu-options-items{
+  padding: 8px 10px;
+  font-size: 20px;
+  color: #6b85ac;
+}
+
+.menu-options-items:hover{
+  background-color: #182a44;
+  border-radius: 6px;
+  color: white;
 }
 
 .title-tile{
@@ -50,7 +72,7 @@ body{
   position: relative;
   margin-bottom: 30px;
   max-width: 100%;
-  width: 500px;
+  width: 450px;
 }
 
 .square{
@@ -81,8 +103,8 @@ body{
 }
 
 @keyframes fill {
-    0%   {width: 0%;}
-    100% {width: 100%;}
+    0%   {width: 100%;}
+    100% {width: 0%;}
 }
 
 .progress {
@@ -96,7 +118,7 @@ body{
 .fill {
   height: 100%;
   width: auto;
-  animation: fill 1s;
+  animation: fill 1.5s;
   animation-timing-function: ease-out;
   background-color: #659cef;
   border-radius: 4px;
@@ -182,7 +204,7 @@ body{
 .button-container{
   display: flex;
   justify-content: space-around;
-  margin-top: 150px;
+  /* margin-top: 150px; */
 }
 
 .button{
@@ -226,14 +248,111 @@ body{
   width: 100%;
 }
 
-#countdown {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+.share-modal-text{
+  background-color: #131823;
+  border-radius: 12px;
+  width: 100%;
+  height: 200px;
+  margin: 24px 0;
+  border: 1px solid #131823;
+  color: white;
+  font-size: 16px;
+  padding: 16px;
+}
+
+.share-button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.share-button-item{
+  height: 72px;
+  width: 72px;
+  border-radius: 16px;
+  border: 1px solid #202835;
+  padding: 4px;
+}
+
+.icon-style{
+  font-size: 32px;
+}
+
+
+.tooltip {
+  position: relative;
   display: inline-block;
-  transform: translate(-50%, -50%);
-  transition: 1s;
-  font-size: 0vw;
-  opacity: 50%;
-  color: #040; 
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.footer-tile{
+  position: absolute;
+  bottom: 32px;
+  width: 100%;
+  padding: 0 48px;
+}
+
+.hr-style{
+  border: 1px solid #4e6180;
+  opacity: 0.5;
+}
+
+.footer-content{
+  display: flex;
+  justify-content: space-between;
+  color: #576c8e;
+  font-size: 14px;
+}
+
+.footer-content .contacts{
+  display: flex;
+  width: 72px;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+a{
+  text-decoration: none;
+  color: #576c8e !important
+}
+
+.gif-tile{
+  height: 96px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  margin: 16px 0px 48px;
 }

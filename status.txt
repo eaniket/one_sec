@@ -1,3 +1,5 @@
 -Share functionality
 
 -isomorphic and clicking effect
+
+-check sharing for phone
