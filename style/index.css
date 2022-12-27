@@ -249,6 +249,22 @@ body{
   width: 100%;
 }
 
+.share-text{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button{
+  background-color: #202835;
+  border: 1px solid #202835;
+}
+
+.fa-times{
+  color: white;
+  font-size: 18px;
+}
+
 .share-modal-text{
   background-color: #131823;
   border-radius: 12px;

@@ -188,8 +188,16 @@
 		<div id="share-modal" class="modal share-modal">
 			<!-- Modal content -->
 			<div class="modal-content instruction-modal-content">
-				<div class="instruction-text">
+				<div class="share-text">
 					<div style="font-size: 36px; font-weight: bold">Share</div>
+					<div>
+						<button
+							class="close-button"
+							onclick="hideModal(document.getElementById('share-modal'))"
+						>
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</button>
+					</div>
 				</div>
 				<div class="instructions">
 					<textarea
