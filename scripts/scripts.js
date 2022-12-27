@@ -102,6 +102,10 @@ const showModal = (modal) => {
 	if (modal == shareModal) {
 		sharedText = window.localStorage.getItem('shareText');
 		let highScore = localStorage.getItem('highScore');
+		if (highScore == null) {
+			highScore = 0;
+			localStorage.setItem('highScore', highScore);
+		}
 		if (sharedText == null || sharedText == '') {
 			let shareText = `Hi there, lets have a reflex check on 1sec. \nMy current high score: ${highScore}. \n\nURL : ${hostedUrl}`;
 			window.localStorage.setItem('shareText', shareText);
