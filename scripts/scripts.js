@@ -71,9 +71,11 @@ const endGame = () => {
 	yourScore.innerHTML = score;
 	highestScoreVal.innerHTML = highScore;
 
+	let gif = document.getElementById('gif');
 	if (score == highScore) {
-		let gif = document.getElementById('gif');
 		gif.src = './resources/party_fox.gif';
+	} else {
+		gif.src = './resources/catshake.gif';
 	}
 	showModal(endGameModal);
 };
