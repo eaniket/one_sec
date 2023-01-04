@@ -60,7 +60,7 @@ body{
   display: flex;
   justify-content: center;
   height: 100vh;
-  margin-top: 150px;
+  margin-top: 32px;
 }
 
 .container {
@@ -129,6 +129,13 @@ body{
   margin-top: 48px;
   color: white;
   font-size: 32px;
+}
+
+.quick-instruction-text{
+  color: white;
+  text-align: center;
+  margin-top: 150px;
+  font-size: 20px;
 }
 
 /* End Game CSS */
